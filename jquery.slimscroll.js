@@ -129,6 +129,9 @@
               }
               else if ('destroy' in options)
               {
+                // clear slimscroll mouse event listeners
+                detachWheel();
+
                 // remove slimscroll elements
                 bar.remove();
                 rail.remove();
@@ -385,6 +388,19 @@
           else
           {
             document.attachEvent("onmousewheel", _onWheel)
+          }
+        }
+
+        function detachWheel()
+        {
+          if (window.removeEventListener)
+          {
+            this.removeEventListener('DOMMouseScroll', _onWheel);
+            this.removeEventListener('mousewheel', _onWheel);
+          }
+          else
+          {
+            document.detachEvent('onmousewheel', _onWheel);
           }
         }
 
