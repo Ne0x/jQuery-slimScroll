@@ -132,7 +132,7 @@
               else if ('destroy' in options)
               {
                 // clear slimscroll mouse event listeners
-                detachWheel();
+                detachWheel.call(this);
 
                 // remove slimscroll elements
                 bar.remove();
@@ -307,7 +307,7 @@
         }
 
         // attach scroll events
-        attachWheel();
+        attachWheel.call(this);
 
         function _onWheel(e)
         {
@@ -382,27 +382,27 @@
 
         function attachWheel()
         {
-          if (window.addEventListener)
+          if (this.addEventListener)
           {
             this.addEventListener('DOMMouseScroll', _onWheel, false);
             this.addEventListener('mousewheel', _onWheel, false);
           }
           else
           {
-            document.attachEvent("onmousewheel", _onWheel);
+            this.attachEvent('onmousewheel', _onWheel);
           }
         }
 
         function detachWheel()
         {
-          if (window.removeEventListener)
+          if (this.removeEventListener)
           {
             this.removeEventListener('DOMMouseScroll', _onWheel);
             this.removeEventListener('mousewheel', _onWheel);
           }
           else
           {
-            document.detachEvent('onmousewheel', _onWheel);
+            this.detachEvent('onmousewheel', _onWheel);
           }
         }
 
