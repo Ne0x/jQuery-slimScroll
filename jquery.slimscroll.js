@@ -382,12 +382,12 @@
         {
           if (window.addEventListener)
           {
-            this.addEventListener('DOMMouseScroll', _onWheel, false );
-            this.addEventListener('mousewheel', _onWheel, false );
+            this.addEventListener('DOMMouseScroll', _onWheel, false);
+            this.addEventListener('mousewheel', _onWheel, false);
           }
           else
           {
-            document.attachEvent("onmousewheel", _onWheel)
+            document.attachEvent("onmousewheel", _onWheel);
           }
         }
 
