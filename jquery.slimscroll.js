@@ -10,6 +10,8 @@
   jQuery.fn.extend({
     slimScroll: function(options) {
 
+      options = options || {};
+
       var defaults = {
 
         // width in pixels of the visible scroll area
